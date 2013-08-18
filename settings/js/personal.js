@@ -146,8 +146,13 @@ $(document).ready(function(){
 	});
 
 	$('#removeavatar').click(function(){
-		$.post(OC.filePath('', '', 'avatar.php'), {path: false});
-		updateAvatar();
+		$.ajax({
+			type:	'DELETE',
+			url:	OC.filePath('', '', 'avatar.php'),
+			success: function(msg) {
+				updateAvatar();
+			}
+		});
 	});
 
 	$('button:button[name="submitDecryptAll"]').click(function() {
