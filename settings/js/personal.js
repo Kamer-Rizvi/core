@@ -45,7 +45,7 @@ function changeDisplayName(){
 }
 
 function selectAvatar (path) {
-	$.post(OC.filePath('settings', 'ajax', 'newavatar.php'), {path: path}, function(data) {
+	$.post(OC.filePath('', '', 'avatar.php'), {path: path}, function(data) {
 		if (data.status === "success") {
 			updateAvatar();
 		} else {
@@ -146,7 +146,7 @@ $(document).ready(function(){
 	});
 
 	$('#removeavatar').click(function(){
-		$.post(OC.filePath('settings', 'ajax', 'newavatar.php'), {path: false});
+		$.post(OC.filePath('', '', 'avatar.php'), {path: false});
 		updateAvatar();
 	});
 
