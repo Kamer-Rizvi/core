@@ -15,9 +15,7 @@ OC_Util::addScript( 'settings', 'personal' );
 OC_Util::addStyle( 'settings', 'settings' );
 OC_Util::addScript( '3rdparty', 'chosen/chosen.jquery.min' );
 OC_Util::addStyle( '3rdparty', 'chosen' );
-if (OC_Config::getValue('avatar', 'local') === 'local') {
-	\OC_Util::addScript('files', 'jquery.fileupload');
-}
+\OC_Util::addScript('files', 'jquery.fileupload');
 OC_App::setActiveNavigationEntry( 'personal' );
 
 $storageInfo=OC_Helper::getStorageInfo();
@@ -86,7 +84,6 @@ $tmpl->assign('activelanguage', $userLang);
 $tmpl->assign('passwordChangeSupported', OC_User::canUserChangePassword(OC_User::getUser()));
 $tmpl->assign('displayNameChangeSupported', OC_User::canUserChangeDisplayName(OC_User::getUser()));
 $tmpl->assign('displayName', OC_User::getDisplayName());
-$tmpl->assign('avatar', OC_Config::getValue('avatar', 'local'));
 $tmpl->assign('enableDecryptAll' , $enableDecryptAll);
 
 $forms=OC_App::getForms('personal');
